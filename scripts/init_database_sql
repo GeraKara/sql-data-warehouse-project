@@ -1,3 +1,5 @@
+--Create Schemas for each level(bronze,silver,gold)--
+
 Create DATABASE DataWarehouse;
 Go
 
