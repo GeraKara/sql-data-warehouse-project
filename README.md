@@ -184,18 +184,6 @@ Validation scripts are included to verify:
 
 ---
 
-# Technologies
-
-- SQL Server
-- T-SQL
-- Medallion Architecture
-- ETL
-- Data Warehousing
-- Star Schema
-- Data Modeling
-
----
-
 # Key Concepts
 
 - Medallion Architecture
