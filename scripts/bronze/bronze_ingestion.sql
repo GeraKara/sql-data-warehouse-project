@@ -1,19 +1,20 @@
 /*
-===========================================================
-Stored Procedure : Load Bronze Layer (Source->Bronze)
-===========================================================
-Script purpose:  
-    This stored procedure loads data into the 'bronze' schema from external CSV files. 
-    It performs the following actions:
-    - Truncates the bronze tables before loading data.
-    - Uses the `BULK INSERT` command to load data from csv Files to bronze tables.
+===============================================================================
+Procedure    : bronze.usp_LoadBronzeData
+Layer        : Bronze
+Description  : Loads raw CRM and ERP datasets into the Bronze layer.
 
-Parameters:
-    None. 
-	  This stored procedure does not accept any parameters or return any values.
+Workflow
+---------
+1. Truncate existing Bronze tables.
+2. Load CSV files using BULK INSERT.
+3. Record execution time for each dataset.
+4. Display execution summary.
 
-Usage Example:
-    EXEC bronze.load_bronze;
+Notes
+-----
+- Bronze preserves raw source data.
+- No transformations are applied during ingestion.
 ===============================================================================
 */
 
