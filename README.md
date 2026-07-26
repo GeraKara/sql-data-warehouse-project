@@ -1,4 +1,4 @@
-# End-to-End Data Warehouse using Medallion Architecture
+# Data Warehouse and Analytics Project
 
 ## Overview
 
