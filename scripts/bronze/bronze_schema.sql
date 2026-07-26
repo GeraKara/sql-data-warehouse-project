@@ -1,52 +1,64 @@
 /*
-======================================================================================
-DDL script : Create Bronze Tables
-======================================================================================
-Script Purpose : 
-  This script creates tables in the 'bronze' schema, dropping existing tables if exists
-  Run this script to re-define the DDL structure of 'bronze' Tables 
-=====================================================================================
+===============================================================================
+File        : bronze_schema.sql
+Layer       : Bronze
+Description : Creates the raw tables used by the Bronze layer.
+
+Notes:
+- Existing tables are dropped before recreation.
+- Tables preserve the original structure of the source datasets.
+- No constraints or transformations are applied at this stage.
+===============================================================================
 */
+
+
+/**************************************************************************
+    CRM TABLES
+**************************************************************************/
 
 IF OBJECT_ID('bronze.crm_cust_info' , 'U') IS NOT NULL
 	DROP TABLE bronze.crm_cust_info;
 CREATE TABLE bronze.crm_cust_info (
-	cst_id INT,
-	cst_key NVARCHAR(50),
-	cst_firstname NVARCHAR(50),
-	cst_last_name NVARCHAR(50),
-	cst_marital NVARCHAR(50),
-	cst_gndr NVARCHAR(50),
+	cst_id 			INT,
+	cst_key 		NVARCHAR(50),
+	cst_firstname 	NVARCHAR(50),
+	cst_last_name 	NVARCHAR(50),
+	cst_marital 	NVARCHAR(50),
+	cst_gndr 		NVARCHAR(50),
 	cst_create_date DATE
 );
 
 IF OBJECT_ID('bronze.crm_prd_info' , 'U') IS NOT NULL
 	DROP TABLE bronze.crm_prd_info;
 CREATE TABLE bronze.crm_prd_info (
-	prd_id INT,
-	prd_key NVARCHAR(50),
-	prd_nm NVARCHAR(50),
-	prd_cost INT,
-	prd_line NVARCHAR(50),
-	prd_start_dt DATETIME,
-	prd_end_dt DATETIME
+	prd_id 			INT,
+	prd_key 		NVARCHAR(50),
+	prd_nm 			NVARCHAR(50),
+	prd_cost 		INT,
+	prd_line 		NVARCHAR(50),
+	prd_start_dt 	DATETIME,
+	prd_end_dt 		DATETIME
 );
 
 
 IF OBJECT_ID('bronze.crm_sales_details' , 'U') IS NOT NULL
 	DROP TABLE bronze.crm_sales_details;
 CREATE TABLE bronze.crm_sales_details (
-	sls_ord_num NVARCHAR(50),
-	sls_prd_key NVARCHAR(50),
-	sls_cust_id INT,
-	sls_order_dt INT,
-	sls_ship_dt INT,
-	sls_due_dt INT,
-	sls_sales INT,
-	sls_quantity INT,
-	sls_price INT
+	sls_ord_num 	NVARCHAR(50),
+	sls_prd_key 	NVARCHAR(50),
+	sls_cust_id 	INT,
+	sls_order_dt 	INT,
+	sls_ship_dt 	INT,
+	sls_due_dt 		INT,
+	sls_sales 		INT,
+	sls_quantity 	INT,
+	sls_price 		INT
 );
 
+
+/**************************************************************************
+    ERP TABLES
+**************************************************************************/
 
 IF OBJECT_ID('bronze.erp_cust_az12' , 'U') IS NOT NULL
 	DROP TABLE bronze.erp_cust_az12;
